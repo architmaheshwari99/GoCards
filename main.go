@@ -27,6 +27,26 @@ func main() {
 	alexPointer := &alex
 	alexPointer.updateName("Rajat")
 	alex.print()
+
+	// MAPS
+	colors := map[string]string{
+		"red":   "red",
+		"green": "green",
+		"white": "white",
+	}
+
+	// var colors map[string]string
+	// colors := make(map[string]string)
+	// fmt.Println(colors)
+	// delete(colors, "green")
+	printMap(colors)
+
+}
+
+func printMap(c map[string]string) {
+	for k, v := range c {
+		fmt.Println(k, v)
+	}
 }
 
 func (pointerToPerson *person) updateName(name string) {
