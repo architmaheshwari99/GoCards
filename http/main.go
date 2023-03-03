@@ -11,5 +11,10 @@ func main() {
 	if err != nil {
 		os.Exit(1)
 	}
-	fmt.Println(resp)
+	// As Read inside the Reader interface can't resize the slice if it is full
+	bs := make([]byte, 99999)
+	resp.Body.Read(bs)
+	// bs is itself updates as it is called by reference
+	fmt.Println(string(bs))
+
 }
